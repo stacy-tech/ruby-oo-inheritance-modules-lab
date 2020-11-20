@@ -1,6 +1,12 @@
 require 'pry'
 
 class Song
+
+
+  extend Memorable::ClassMethods
+  include Paramable
+  
+
   attr_accessor :name
   attr_reader :artist
 
@@ -23,14 +29,14 @@ class Song
   end
 
   def self.count
-    self.all.count
+   self.all.count
   end
 
   def artist=(artist)
     @artist = artist
   end
 
-  def to_param
-    name.downcase.gsub(' ', '-')
-  end
+  # def to_param
+  #   name.downcase.gsub(' ', '-')
+  # end
 end
